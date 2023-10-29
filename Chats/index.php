@@ -40,7 +40,6 @@
                 $hora = $row['Hora'];
                 $mensaje = $row['Mensaje'];
 
-                // Estilo de mensaje según el usuario
                 $messageClass = ($usuario == $_SESSION['user']["IdUsuario"]) ? 'user-message' : 'other-user-message';
 
                 echo '<div class="message ' . $messageClass . '">';                
@@ -53,11 +52,9 @@
             echo '<p>No se encontraron mensajes en el chat.</p>';
         }
 
-        // Cerrar la conexión a la base de datos
         mysqli_close($conn);
         ?>
 
-            <!-- Formulario para enviar mensajes -->
             <form>
                 <input type="text" placeholder="Escribe tu mensaje...">
                 <button type="submit">Enviar</button>
