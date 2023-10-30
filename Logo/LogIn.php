@@ -1,10 +1,11 @@
 <?php
 include_once '../BaseDatos/DbConection.php';
-$user = $_POST['user'];
 $pass = $_POST['pass'];
-$conn = conexion();
+$user = $_POST['user'];
 
-$sql = "SELECT * FROM Usuario  WHERE Log= '$user' AND Contraseña = '$pass'";
+ 
+$conn = conexion();
+$sql = "SELECT * FROM usuario  WHERE `log` = '$user' AND `contraseña` = '$pass'";
 $resultado = mysqli_query($conn, $sql);
 $data=mysqli_fetch_assoc($resultado);
 if ($data == null) {
