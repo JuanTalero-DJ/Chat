@@ -14,7 +14,6 @@
     <link href="https://fonts.googleapis.com/css2?family=Cinzel&family=Exo:wght@300&display=swap" rel="stylesheet">
     <script src="https://kit.fontawesome.com/2943493a50.js" crossorigin="anonymous"></script>
     <title>Conversación de Chat</title>
-    <link rel="stylesheet" href="styles.css">
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script>
     $(document).ready(function() {
@@ -53,7 +52,6 @@
         $result = mysqli_query($conn, $sql);
         $nameUserChat=mysqli_fetch_assoc($result);
 
-<<<<<<< HEAD
         echo '<div class="row userDest"> <i class="fa-solid fa-circle-user userDest"></i> <h3>' . $nameUserChat['Nombre'] . '</div></h3>';   
         ?>
             <div id="chat"></div>
@@ -63,32 +61,6 @@
             <form name="sendmessaje" method="post" action="SendMessaje.php">
                 <input type="text" name="mensaje" placeholder="Escribe tu mensaje..." required>
                 <button type="submit" onkeypress="wipeValue()">Enviar</button>
-=======
-        if (mysqli_num_rows($result) > 0) {
-            while ($row = mysqli_fetch_assoc($result)) {
-                $usuario = $row['IdUsuario'];
-                $hora = $row['Hora'];
-                $mensaje = $row['Mensaje'];
-
-                $messageClass = ($usuario == $_SESSION['user']["IdUsuario"]) ? 'user-message' : 'other-user-message';
-
-                echo '<div class="message ' . $messageClass . '">';                
-                echo '<p>' . $mensaje . '</p>';
-                echo '<p style="font-size: 13px; text-align: right;">' . $hora . '</p>';
-
-                echo '</div>';
-            }
-        } else {
-            echo '<p>No se encontraron mensajes en el chat.</p>';
-        }
-
-        mysqli_close($conn);
-        ?>
-
-            <form>
-                <input type="text" placeholder="Escribe tu mensaje...">
-                <button type="submit">Enviar</button>
->>>>>>> a6f91fb83e57b9bd3d207c486cf242431ebd7a3f
             </form>
         </div>
     </div>

@@ -2,6 +2,17 @@
 <html>
 <head>
     <title>Administrador</title>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="../Styles/estilo.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel&family=Exo:wght@300&display=swap" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/2943493a50.js" crossorigin="anonymous"></script>
+
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -14,58 +25,19 @@
         h2 {
             margin-top: 20px;
         }
-        table {
-            width: 80%;
-            border-collapse: collapse;
-            margin: 20px auto;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-        }
-        th, td {
-            padding: 12px 15px;
-            text-align: left;
-        }
-        th {
-            background-color: #0074b1;
-            color: #fff;
-        }
-        tr:nth-child(even) {
-            background-color: #f2f2f2;
-        }
-        input[type="password"] {
-            width: 100%;
-            padding: 8px;
-        }
-        button {
-            background-color: #0074b1;
-            color: #fff;
-            border: none;
-            padding: 5px 10px;
-            cursor: pointer;
-        }
-        button:hover {
-            background-color: #00548c;
-        }
-        input[type="submit"] {
-            background-color: #0074b1;
-            color: #fff;
-            border: none;
-            padding: 10px 20px;
-            cursor: pointer;
-            margin-top: 20px;
-        }
-        input[type="submit"]:hover {
-            background-color: #00548c;
-        }
-        .blocked {
-            color: red;
-            font-weight: bold;
-        }
+       
     </style>
 </head>
 <body>
-    <h1>Administrador</h1>
+    <!-- <h1>Administrador</h1> -->
+    <?php   
+        include_once '../BaseDatos/DbConection.php';
+        include_once '../Logo/Session.php';
+        validateSession();
+    ?>
 
-    <h2>Información de la Tabla "usuario"</h2>
+    <div class='nameUserLoged'><?php echo "Administrador";?> <a onclick="window.location.href='../Logo/DestroydSession.php'"> <i title="Salir" class="fa-solid fa-power-off iconOutSesion"></i> </a> </div>  
+    <h3>Información de la Tabla "usuario"</h3>
     <form method="post" action="<?php echo $_SERVER['PHP_SELF']; ?>">
         <table>
             <tr>
@@ -155,7 +127,6 @@
             ?>
         </table>
         <input type="submit" value="Guardar Cambios">
-        <input type="button" value="Salir" onclick="window.location.href='../index.html'">
     </form>
 </body>
 </html>

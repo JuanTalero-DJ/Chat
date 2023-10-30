@@ -5,9 +5,8 @@ session_start();
 
 $user = $_POST['user'];
 $pass = $_POST['pass'];
-$user = $_POST['user'];
 
-
+$conn = conexion();
 $sql_usuario = "SELECT * FROM usuario WHERE Log = '$user'";
 $resultado_usuario = mysqli_query($conn, $sql_usuario);
 
