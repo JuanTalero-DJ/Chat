@@ -88,6 +88,7 @@
                     $nueva_contrasena = mysqli_real_escape_string($conn, $nueva_contrasena);
 
                     if (!empty($nueva_contrasena)) {
+                        $nueva_contrasena = base64_encode($nueva_contrasena);
                         $actualizar_query = "UPDATE usuario SET Contraseña = '$nueva_contrasena' WHERE IdUsuario = $idUsuario";
 
                         if (mysqli_query($conn, $actualizar_query)) {
