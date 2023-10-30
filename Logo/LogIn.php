@@ -5,6 +5,7 @@ session_start();
 
 $user = $_POST['user'];
 $pass = $_POST['pass'];
+$pass =base64_encode($pass);
 
 $conn = conexion();
 $sql_usuario = "SELECT * FROM usuario WHERE Log = '$user'";
